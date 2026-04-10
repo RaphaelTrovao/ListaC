@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <time.h>
+#include <string.h>
 
 /*QUESTÃO 01:
 Faça uma função que, dada uma matriz Mm×n de
@@ -35,7 +36,7 @@ void main(){
     transpor(matriz);
 }*/
 
-void preencherMatrizAleatoria (int l, int c, int mat[l][c], int limite)
+/*void preencherMatrizAleatoria (int l, int c, int mat[l][c], int limite)
 {
 	//declaração de variáveis
 	int i, j;
@@ -98,4 +99,55 @@ void main(){
     preencherMatrizAleatoria (a, b,mat, c);
     exibirMatriz (a, b,mat);
     invermat(a, b, mat);
+}*/
+/*Questão 02:
+Suponha a existência de um vetor de tamanho
+TAM, cada posição armazenando o nome da
+pessoa e a sua data de aniversário
+(representada por um struct do tipo TData,
+contendo os campos dia e mes). Pede-se o
+desenvolvimento das seguintes funções:
+ Determinar a quantidade de pessoas que
+fazem aniversário no mês M;
+ Exibir os nomes de todas pessoas que fazem
+aniversário entre as datas d1 e d2, ambas
+do tipo TData.*/
+typedef struct{
+    char nome[30];
+    int dia;
+    int mes;
+} TData;
+
+int aniano(TData an[]);
+void main(){
+    TData anivs[4];
+    anivs[0].dia = 25;
+    anivs[0].mes = 10;
+    strcpy (anivs[0].nome, "RAPHAEL");
+
+    anivs[1].dia = 28;
+    anivs[1].mes = 7;
+    strcpy (anivs[1].nome, "MALU");
+
+    anivs[2].dia = 1;
+    anivs[2].mes = 3;
+    strcpy (anivs[2].nome, "TAYLOR");
+    
+
+    anivs[3].dia = 15;
+    anivs[3].mes = 10;
+    strcpy (anivs[3].nome, "RAPHAEL");
+
+    printf("%d", aniano(anivs));
+}
+
+int aniano(TData an[]){
+    int m, aniM = 0;
+    scanf("%d", &m);
+    for(int i = 0; i < 4; i++){
+        if(an[i].mes == m){
+            aniM++;
+        }
+    }
+    return aniM;
 }
